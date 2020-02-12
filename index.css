@@ -1,0 +1,49 @@
+.tales {
+    width: 100%;
+}
+
+.carousel-inner {
+    width: 100%;
+    max-height: 300px !important;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: url('assets/images/hackclubke_meet.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.my-form {
+    padding-top: 4.5rem;
+    padding-bottom: 1.0rem;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.img {
+    padding-top: 1.0rem;
+}
+
+.card {
+    background-color: whitesmoke;
+}
+
+.buttonHolder {
+    text-align: center;
+}
+
+#navbar_logo{
+    /* width: 2px; */
+    height: 50px;
+}
+#mentor_header{
+    padding-top: 2.0rem;
+}
