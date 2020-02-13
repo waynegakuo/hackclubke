@@ -113,7 +113,7 @@
         </div>
     </footer> -->
 </body>
-<!-- <script>
+<script>
     $(document).ready(function () {
         $("#submit").on('click', function (e) {
             e.preventDefault();
@@ -126,7 +126,7 @@
 
             if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
                 $("#submit").attr("disabled", true);
-                $.post("https://moringasign.000webhostapp.com/processentry.php",
+                $.post("https://hclubkenya.000webhostapp.com/processentry.php",
                     {
                         fname: fname,
                         lname: lname,
@@ -137,7 +137,7 @@
                     function (data, status) {
                         console.log("printing success", data);
                         if (data == 'Successful Registration') {
-                            alert("Thank you for registering with Moringa School")
+                            alert("Thank you for registering with Hack Club Kenya")
                             self.location.href = 'index.html';
                         }
                         else {
@@ -150,6 +150,6 @@
             }
         })
     });
-</script> -->
+</script>
 
 </html>
