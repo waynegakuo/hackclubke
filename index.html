@@ -36,7 +36,7 @@
         <a class="navbar-brand" href="#">
             <strong>Hack Club Kenya</strong>
             <!-- <img id="navbar_logo" src="https://hackclub.com/logo-red.svg" alt=""> -->
-          </a>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -93,10 +93,37 @@
                             <div class="form-group">
                                 <label for="type">Type</label>
                                 <select class="form-control" id="type">
-                                    <option value="Student">Student</option>
-                                    <option value="Interested">Developer</option>
+                                    <option selected>--Select--</option>
+                                    <option value="Student">University Student</option>
+                                    <option value="Graduate">University Graduate</option>
+                                    <option value="Developer">Developer</option>
                                     <option value="Organization">Organization</option>
                                 </select>
+                            </div>
+                            <div class="form-group" id="uni" style="display: none">
+                                <label for="uni">Which University are you in?</label>
+                                <input type="text" class="form-control" id="uni" placeholder="JKUAT">
+                            </div>
+                            <div class="form-group" id="grad" style="display: none">
+                                <label for="grad">Which University did you graduate from?</label>
+                                <input type="text" class="form-control" id="grad" placeholder="JKUAT">
+                            </div>
+                            <div class="form-group" id="org" style="display: none">
+                                <label for="org">Which organization do you represent or part of?</label>
+                                <input type="text" class="form-control" id="org" placeholder="Google">
+                            </div>
+                            <div class="form-group" id="dev" style="display: none">
+                                <label for="dev">As a developer, what is your stack?</label>
+                                <input type="text" class="form-control" id="dev" placeholder="NodeJS, React, Angular, etc">
+                            </div>
+                            <div class="form-group">
+                                <label for="type">Will you be available for a Mentor's Training Session in April (Date TBA)?</label><br>
+                                <input type="radio" id="avail1" name="avail" value="Yes">
+                                <label for="avail1">Yes</label><br>
+                                <input type="radio" id="avail2" name="avail" value="No">
+                                <label for="avail2">No</label><br>
+                                <input type="radio" id="avail3" name="avail" value="Maybe">
+                                <label for="avail3">Maybe</label><br>
                             </div>
                             <div class="buttonHolder">
                                 <input type="button" id="submit" name="submit" class="btn btn-primary" value="Submit">
@@ -115,6 +142,51 @@
 </body>
 <script>
     $(document).ready(function () {
+        
+        $("#type").change(function(){
+            if($(this).val()=="Student")
+            {    
+                $("div#uni").show();
+            }
+             else
+             {
+                 $("div#uni").hide();
+             }
+         });
+
+         $("#type").change(function(){
+            if($(this).val()=="Graduate")
+            {    
+                $("div#grad").show();
+            }
+             else
+             {
+                 $("div#grad").hide();
+             }
+         });
+
+         $("#type").change(function(){
+            if($(this).val()=="Developer")
+            {    
+                $("div#dev").show();
+            }
+             else
+             {
+                 $("div#dev").hide();
+             }
+         });
+
+         $("#type").change(function(){
+            if($(this).val()=="Organization")
+            {    
+                $("div#org").show();
+            }
+             else
+             {
+                 $("div#org").hide();
+             }
+         });
+
         $("#submit").on('click', function (e) {
             e.preventDefault();
 
@@ -124,6 +196,11 @@
             var phone = document.getElementById("contact").value
             var type = document.getElementById("type").value
 
+            var uni = ($('input#uni').val())
+            var grad = ($('input#grad').val())
+            var dev = ($('input#dev').val())
+            var org = ($('input#org').val())
+            
             if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
                 $("#submit").attr("disabled", true);
                 $.post("https://hclubkenya.000webhostapp.com/processentry.php",
@@ -133,6 +210,10 @@
                         email: email,
                         phone: phone,
                         type: type,
+                        uni: uni,
+                        grad: grad,
+                        dev: dev,
+                        org: org
                     },
                     function (data, status) {
                         console.log("printing success", data);
