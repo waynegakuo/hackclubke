@@ -116,7 +116,7 @@
                                 <label for="dev">As a developer, what is your stack?</label>
                                 <input type="text" class="form-control" id="dev" placeholder="NodeJS, React, Angular, etc">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="avail">
                                 <label for="type">Will you be available for a Mentor's Training Session in April (Date TBA)?</label><br>
                                 <input type="radio" id="avail1" name="avail" value="Yes">
                                 <label for="avail1">Yes</label><br>
@@ -200,6 +200,8 @@
             var grad = ($('input#grad').val())
             var dev = ($('input#dev').val())
             var org = ($('input#org').val())
+
+            var avail = $("input[name='avail']:checked").val();
             
             if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
                 $("#submit").attr("disabled", true);
@@ -213,7 +215,8 @@
                         uni: uni,
                         grad: grad,
                         dev: dev,
-                        org: org
+                        org: org,
+                        avail: avail
                     },
                     function (data, status) {
                         console.log("printing success", data);
