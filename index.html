@@ -114,10 +114,18 @@
                             </div>
                             <div class="form-group" id="dev" style="display: none">
                                 <label for="dev">As a developer, what is your stack?</label>
-                                <input type="text" class="form-control" id="dev" placeholder="NodeJS, React, Angular, etc">
+                                <input type="text" class="form-control" id="dev"
+                                    placeholder="NodeJS, React, Angular, etc">
+                            </div>
+                            <label for="pitch">Why should you be choosen as a mentor for Hack Club Kenya?</label>
+                            <textarea class="form-control" id="pitch"
+                                placeholder="Tell us more about yourself and what makes you unique?" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter a message in the textarea.
                             </div>
                             <div class="form-group" id="avail">
-                                <label for="type">Will you be available for a Mentor's Training Session in April (Date TBA)?</label><br>
+                                <label for="type">Will you be available for a Mentor's Training Session in April (Date
+                                    TBA)?</label><br>
                                 <input type="radio" id="avail1" name="avail" value="Yes">
                                 <label for="avail1">Yes</label><br>
                                 <input type="radio" id="avail2" name="avail" value="No">
@@ -142,50 +150,42 @@
 </body>
 <script>
     $(document).ready(function () {
-        
-        $("#type").change(function(){
-            if($(this).val()=="Student")
-            {    
+
+        $("#type").change(function () {
+            if ($(this).val() == "Student") {
                 $("div#uni").show();
             }
-             else
-             {
-                 $("div#uni").hide();
-             }
-         });
+            else {
+                $("div#uni").hide();
+            }
+        });
 
-         $("#type").change(function(){
-            if($(this).val()=="Graduate")
-            {    
+        $("#type").change(function () {
+            if ($(this).val() == "Graduate") {
                 $("div#grad").show();
             }
-             else
-             {
-                 $("div#grad").hide();
-             }
-         });
+            else {
+                $("div#grad").hide();
+            }
+        });
 
-         $("#type").change(function(){
-            if($(this).val()=="Developer")
-            {    
+        $("#type").change(function () {
+            if ($(this).val() == "Developer") {
                 $("div#dev").show();
             }
-             else
-             {
-                 $("div#dev").hide();
-             }
-         });
+            else {
+                $("div#dev").hide();
+            }
+        });
 
-         $("#type").change(function(){
-            if($(this).val()=="Organization")
-            {    
+        $("#type").change(function () {
+            if ($(this).val() == "Organization") {
                 $("div#org").show();
             }
-             else
-             {
-                 $("div#org").hide();
-             }
-         });
+            else {
+                $("div#org").hide();
+            }
+        });
 
         $("#submit").on('click', function (e) {
             e.preventDefault();
@@ -195,6 +195,7 @@
             var email = document.getElementById("email").value
             var phone = document.getElementById("contact").value
             var type = document.getElementById("type").value
+            var pitch = document.getElementById("pitch").value
 
             var uni = ($('input#uni').val())
             var grad = ($('input#grad').val())
@@ -202,7 +203,7 @@
             var org = ($('input#org').val())
 
             var avail = $("input[name='avail']:checked").val();
-            
+
             if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
                 $("#submit").attr("disabled", true);
                 $.post("https://hclubkenya.000webhostapp.com/processentry.php",
@@ -216,13 +217,18 @@
                         grad: grad,
                         dev: dev,
                         org: org,
-                        avail: avail
+                        avail: avail,
+                        pitch: pitch
                     },
                     function (data, status) {
                         console.log("printing success", data);
                         if (data == 'Successful Registration') {
                             alert("Thank you for registering with Hack Club Kenya")
                             self.location.href = 'index.html';
+                        }
+                        else if (data == 'This email already exists!'){
+                            alert("This email already exists");
+                            $("#submit").attr("disabled", false);
                         }
                         else {
                             alert(data);
