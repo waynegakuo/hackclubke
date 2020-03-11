@@ -1,4 +1,5 @@
 {
+    "background_color": "#fff",
     "display": "standalone",
     "orientation": "portrait",
     "theme_color": "#fff",
