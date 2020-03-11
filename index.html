@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- theme-color -->
+    <meta name="theme-color" content="#fff" />
+    <!-- end-theme-color -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -19,7 +22,20 @@
         crossorigin="anonymous"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="shortcut icon" href="mslog.ico" />
+
+    <!-- register service worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(() => { console.log("[ PWA Fire Bundle ] Service Worker Registered"); });
+            });
+        }  
+    </script>
+
+    <!-- start of web manifest -->
+    <link rel="manifest" href="./app.webmanifest">
+    <!-- end of web manifest -->
 
     <script>
         document.addEventListener("deviceready", onDeviceReady, false);
@@ -88,7 +104,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="contact">Phone Number</label>
-                                <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control" id="contact" placeholder="0711225588" autocomplete="one-time-code" >
+                                <input type="text" inputmode="numeric" pattern="[0-9]*" class="form-control"
+                                    id="contact" placeholder="0711225588" autocomplete="one-time-code">
                             </div>
                             <div class="form-group">
                                 <label for="type">Type</label>
@@ -119,7 +136,8 @@
                             </div>
                             <label for="pitch">Why should you be choosen as a mentor for Hack Club Kenya?</label>
                             <textarea class="form-control" id="pitch"
-                                placeholder="Tell us more about yourself and what makes you unique?" required></textarea>
+                                placeholder="Tell us more about yourself and what makes you unique?"
+                                required></textarea>
                             <div class="invalid-feedback">
                                 Please enter a message in the textarea.
                             </div>
@@ -226,7 +244,7 @@
                             alert("Thank you for registering with Hack Club Kenya")
                             self.location.href = 'index.html';
                         }
-                        else if (data == 'This email already exists!'){
+                        else if (data == 'This email already exists!') {
                             alert("This email already exists");
                             $("#submit").attr("disabled", false);
                         }

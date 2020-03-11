@@ -9,7 +9,7 @@
 
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: url('assets/images/hackclubke_meet.jpg') no-repeat center center fixed; 
+    background: url('../../images/hackclubke_meet.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
