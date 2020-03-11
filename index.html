@@ -117,19 +117,19 @@
                                     <option value="Organization">Organization</option>
                                 </select>
                             </div>
-                            <div class="form-group" id="uni" style="display: none">
+                            <div class="form-group" id="uni" style="display: none" required>
                                 <label for="uni">Which University are you in?</label>
                                 <input type="text" class="form-control" id="uni" placeholder="JKUAT">
                             </div>
-                            <div class="form-group" id="grad" style="display: none">
-                                <label for="grad">Which University did you graduate from?</label>
+                            <div class="form-group" id="grad" style="display: none" required>
+                                <label for="grad">Which University did you graduate from? </label>
                                 <input type="text" class="form-control" id="grad" placeholder="JKUAT">
                             </div>
-                            <div class="form-group" id="org" style="display: none">
+                            <div class="form-group" id="org" style="display: none" required>
                                 <label for="org">Which organization do you represent or part of?</label>
                                 <input type="text" class="form-control" id="org" placeholder="Google">
                             </div>
-                            <div class="form-group" id="dev" style="display: none">
+                            <div class="form-group" id="dev" style="display: none" required>
                                 <label for="dev">As a developer, what is your stack?</label>
                                 <input type="text" class="form-control" id="dev"
                                     placeholder="NodeJS, React, Angular, etc">
@@ -144,11 +144,11 @@
                             <div class="form-group" id="avail">
                                 <label for="type">Will you be available for a Mentor's Training Session in April (Date
                                     TBA)?</label><br>
-                                <input type="radio" id="avail1" name="avail" value="Yes">
+                                <input type="radio" id="avail1" name="avail" value="Yes" required>
                                 <label for="avail1">Yes</label><br>
-                                <input type="radio" id="avail2" name="avail" value="No">
+                                <input type="radio" id="avail2" name="avail" value="No" required>
                                 <label for="avail2">No</label><br>
-                                <input type="radio" id="avail3" name="avail" value="Maybe">
+                                <input type="radio" id="avail3" name="avail" value="Maybe" required>
                                 <label for="avail3">Maybe</label><br>
                             </div>
                             <div class="buttonHolder">
