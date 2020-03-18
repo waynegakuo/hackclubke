@@ -223,7 +223,7 @@
 
             var avail = $("input[name='avail']:checked").val();
 
-            if (fname != "" && lname != "" && email != "" && phone != "" && type != "") {
+            if (fname != "" && lname != "" && email != "" && phone != "" && type != "" && pitch !="" && (uni !="" || grad !="" || dev != "" || org !="")) {
                 $("#submit").attr("disabled", true);
                 $.post("https://hclubkenya.000webhostapp.com/processentry.php",
                     {
