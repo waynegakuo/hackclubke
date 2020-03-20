@@ -6,6 +6,7 @@
   
 /* Placeholder to be deleted soon */
 .bg-special /*body*/{
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-y: hidden;
     max-height: 40em;
 	background: rgba(255,255,255,0.1) url(https://my-asia.net/image/catalog/bg-special.png) 50% 40px no-repeat;
