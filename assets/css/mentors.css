@@ -1,0 +1,60 @@
+.vh-100{
+    height: 100vh;
+    min-height:100vh;
+  }
+
+  
+/* Placeholder to be deleted soon */
+.bg-special /*body*/{
+    overflow-y: hidden;
+    max-height: 40em;
+	background: rgba(255,255,255,0.1) url(https://my-asia.net/image/catalog/bg-special.png) 50% 40px no-repeat;
+	-webkit-animation: bgscroll 30s alternate infinite linear;
+	-moz-animation: bgscroll 30s alternate infinite linear;
+	-ms-animation: bgscroll 30s alternate infinite linear;
+}
+
+
+h1 span {
+	position: absolute;
+	display: block;
+	z-index: -1;
+	width: 675px;
+	height: 675px;
+	background: url(http://i.imgur.com/1YS17.png) 0 0 no-repeat;
+	top: -139px;
+	left: -130px;
+	-webkit-animation: rotateinfinite 120s infinite linear;
+	-moz-animation: rotateinfinite 120s infinite linear;
+	-ms-animation: rotateinfinite 120s infinite linear;
+}
+
+@-webkit-keyframes bgscroll {
+	0%		{ background-position: 5% 40px; }
+	100%	{ background-position: 95% 40px; }
+}
+
+@-webkit-keyframes rotateinfinite {
+	0%		{ -webkit-transform: rotate(0deg); }
+	100%	{ -webkit-transform: rotate(350deg); }
+}
+
+@-moz-keyframes bgscroll {
+	0%		{ background-position: 5% 40px; }
+	100%	{ background-position: 95% 40px; }
+}
+
+@-moz-keyframes rotateinfinite {
+	0%		{ -moz-transform: rotate(0deg); }
+	100%	{ -moz-transform: rotate(350deg); }
+}
+
+@-ms-keyframes bgscroll {
+	0%		{ background-position: 5% 40px; }
+	100%	{ background-position: 95% 40px; }
+}
+
+@-ms-keyframes rotateinfinite {
+	0%		{ -ms-transform: rotate(0deg); }
+	100%	{ -ms-transform: rotate(350deg); }
+}	
