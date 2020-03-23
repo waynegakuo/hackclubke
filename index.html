@@ -22,15 +22,19 @@
         crossorigin="anonymous"></script>
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/sticky_social.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- register service worker -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./service-worker.js')
-                    .then(() => { console.log("[ PWA Fire Bundle ] Service Worker Registered"); });
+                    .then(() => {
+                        console.log("[ PWA Fire Bundle ] Service Worker Registered");
+                    });
             });
-        }  
+        }
     </script>
 
     <!-- start of web manifest -->
@@ -39,14 +43,24 @@
 
     <script>
         document.addEventListener("deviceready", onDeviceReady, false);
-        function onDeviceReady() {
-        }
+
+        function onDeviceReady() { }
     </script>
 
     <title>Hack Club-Kenya</title>
 </head>
 
 <body>
+    <!-- <ul class="social_bar">
+        <li id="social"><i class="fa fa-facebook-official"></i></li>
+        <li id="social"><i class="fa fa-twitter"></i></li>
+        <li id="social"><i class="fa fa-instagram"></i></li>
+        <li id="social"><i class="fa fa-pinterest"></i></li>
+        <li id="social"><i class="fa fa-skype"></i></li>
+        <li id="social"><i class="fa fa-google-plus"></i></li>
+        <li id="social"><i class="fa fa-linkedin"></i></li>
+    </ul> -->
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
         <a class="navbar-brand" href="#">
@@ -72,6 +86,9 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li> -->
             </ul>
+            <a href="https://twitter.com/hackclubke?ref_src=twsrc%5Etfw" class="twitter-follow-button"
+                data-show-count="false">Follow @hackclubke</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             <!-- <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -176,8 +193,7 @@
         $("#type").change(function () {
             if ($(this).val() == "Student") {
                 $("div#uni").show();
-            }
-            else {
+            } else {
                 $("div#uni").hide();
             }
         });
@@ -185,8 +201,7 @@
         $("#type").change(function () {
             if ($(this).val() == "Graduate") {
                 $("div#grad").show();
-            }
-            else {
+            } else {
                 $("div#grad").hide();
             }
         });
@@ -194,8 +209,7 @@
         $("#type").change(function () {
             if ($(this).val() == "Developer") {
                 $("div#dev").show();
-            }
-            else {
+            } else {
                 $("div#dev").hide();
             }
         });
@@ -203,8 +217,7 @@
         $("#type").change(function () {
             if ($(this).val() == "Organization") {
                 $("div#org").show();
-            }
-            else {
+            } else {
                 $("div#org").hide();
             }
         });
@@ -226,38 +239,34 @@
 
             var avail = $("input[name='avail']:checked").val();
 
-            if (fname != "" && lname != "" && email != "" && phone != "" && type != "" && pitch !="" && (uni !="" || grad !="" || dev != "" || org !="")) {
+            if (fname != "" && lname != "" && email != "" && phone != "" && type != "" && pitch != "" && (uni != "" || grad != "" || dev != "" || org != "")) {
                 $("#submit").attr("disabled", true);
-                $.post("https://hclubkenya.000webhostapp.com/processentry.php",
-                    {
-                        fname: fname,
-                        lname: lname,
-                        email: email,
-                        phone: phone,
-                        type: type,
-                        uni: uni,
-                        grad: grad,
-                        dev: dev,
-                        org: org,
-                        avail: avail,
-                        pitch: pitch
-                    },
+                $.post("https://hclubkenya.000webhostapp.com/processentry.php", {
+                    fname: fname,
+                    lname: lname,
+                    email: email,
+                    phone: phone,
+                    type: type,
+                    uni: uni,
+                    grad: grad,
+                    dev: dev,
+                    org: org,
+                    avail: avail,
+                    pitch: pitch
+                },
                     function (data, status) {
                         console.log("printing success", data);
                         if (data == 'Successful Registration') {
                             alert("Thank you for registering with Hack Club Kenya")
                             self.location.href = 'index.html';
-                        }
-                        else if (data == 'This email already exists!') {
+                        } else if (data == 'This email already exists!') {
                             alert("This email already exists");
                             $("#submit").attr("disabled", false);
-                        }
-                        else {
+                        } else {
                             alert(data);
                         }
                     });
-            }
-            else {
+            } else {
                 alert("Kindly fill in the fields");
             }
         })
