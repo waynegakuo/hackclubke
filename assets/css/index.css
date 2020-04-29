@@ -1,3 +1,8 @@
+@import 'https://fonts.googleapis.com/css?family=Poppins';
+
+*{
+    font-family: Poppins, sans-serif;
+}
 .tales {
     width: 100%;
 }
@@ -14,6 +19,100 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin: 0;
+}
+
+nav {
+    background-color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    overflow: hidden;
+}
+
+nav img {
+    cursor: pointer;
+    width: 200px;
+    height: 40px;
+}
+
+.burger {
+    border: 0;
+    background-color: transparent;
+    color: #0594ec;
+    font-size: 20px;
+    display: none;
+}
+
+.burger:focus{
+    outline: none;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none !important;
+    color: #2c405e !important;
+    position: relative !important;
+}
+
+nav ul li a::after{
+    content: '';
+    background-color: #2c405e;
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    transition: transform 0.2s ease;
+}
+
+nav ul li a:hover::after{
+    transform: translateY(-15px);
+    opacity: 1;
+}
+
+/* responsiveness */
+@media (max-width: 480px){
+    .burger {
+        display: block;
+    }
+    nav ul {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: 10%;
+        width: 80%;
+        text-align: center;
+        transform: translateX(120%);
+        transition: transform 0.4s ease;
+    }
+
+    nav ul.show {
+        transform: translateX(0);
+    }
+
+    nav ul li {
+        margin: 15px;
+    }
+    .my-form.push {
+        margin-top: 200px;
+        transition: all 0.3s ease;
+    }
 }
 
 .my-form {
@@ -40,10 +139,6 @@ body {
     text-align: center;
 }
 
-#navbar_logo{
-    /* width: 2px; */
-    height: 50px;
-}
 #mentor_header{
     padding-top: 2.0rem;
 }
